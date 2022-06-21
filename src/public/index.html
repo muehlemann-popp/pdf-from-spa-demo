@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- This is important so the chromium knows how to resolve relative links -->
-    <base href="http://localhost:3000/">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
 
     <style>
         @media print {
             .hide-on-print {
                 display: none !important;
             }
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif ;
+        }
+
+        h1, h2 {
+            font-family: 'League Gothic', sans-serif;
+            font-weight: 300 !important;
         }
 
         .icon {

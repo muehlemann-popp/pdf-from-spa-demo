@@ -1,4 +1,9 @@
 function printMe() {
+  // Provide the Base-URL for relative links
+  const baseElement = document.createElement("base");
+  baseElement.setAttribute('href', window.location.protocol + '//' + window.location.host)
+  document.getElementsByTagName('head')[0].appendChild(baseElement)
+
   // We have to replace the Canvas with the corresponding PNG image
   const imgData = ctx.toDataURL("image/png")
   ctx.remove()

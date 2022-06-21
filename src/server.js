@@ -6,10 +6,10 @@ const app = express()
 
 var path = require("path");
 app.use(function (req, res, next) {
-    var filename = path.basename(req.url);
-    var extension = path.extname(filename);
-    console.log("The file " + filename + " was requested.");
-    next();
+  var filename = path.basename(req.url);
+  var extension = path.extname(filename);
+  console.log("The file " + filename + " was requested.");
+  next();
 });
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(express.static('public'))
@@ -21,7 +21,7 @@ const HOST = '0.0.0.0';
 app.post('/get-pdf', async (req, res) => {
   const puppeteer = require('puppeteer');
 
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const page = await browser.newPage();
   await page.setViewport({width: 1280, height: 1800})
   page.setJavaScriptEnabled(false)
@@ -48,6 +48,6 @@ app.post('/get-pdf', async (req, res) => {
   res.send(base64data);
 })
 
-app.listen(PORT, HOST,() => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.listen(PORT, HOST, () => {
+  console.log(`App listening at http://localhost:${PORT}`)
 })
