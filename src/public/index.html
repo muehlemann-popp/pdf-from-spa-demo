@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- This is important so the chromium knows how to resolve relative links -->
+    <base href="http://localhost:3000/">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        @media print {
+            .hide-on-print {
+                display: none !important;
+            }
+        }
+
+        .icon {
+            height: 5rem;
+            width: 5rem;
+            color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+
+<svg style="display: none">
+    <symbol id="my-circle">
+        <circle cx="50" cy="50" r="10" stroke="black" stroke-width="3" fill="blue"/>
+    </symbol>
+</svg>
+
+<section class="section">
+    <div class="container content">
+        <h1 class="title">
+            Realmatch Printable DOM example
+        </h1>
+        <div class="field is-grouped hide-on-print">
+            <div class="control">
+                <button class="button is-link" onclick="printMe()">Generate PDF</button>
+            </div>
+        </div>
+        <div class="content" style="page-break-inside: avoid;">
+            <h2>SVG Data</h2>
+            <p>
+                <!-- This does not work. Chromium does not seem to evaluate that href -->
+                <svg height="100" width="100" xmlns="http://www.w3.org/2000/svg" class="icon">
+                    <use href="icons.svg#i-location"></use>
+                </svg>
+                <!-- If the reference is to a local file it works -->
+                <svg height="100" width="100" xmlns="http://www.w3.org/2000/svg" class="icon">
+                    <use href="#my-circle"></use>
+                </svg>
+                <svg height="100" width="100" xmlns="http://www.w3.org/2000/svg" class="icon" id="i-location"
+                     viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M18 10c0 3.83-1.676 6.33-3.368 7.916A12.327 12.327 0 0112 19.794a12.328 12.328 0 01-2.632-1.878C7.676 16.33 6 13.829 6 10a6 6 0 1112 0zm2 0c0 9-8 12-8 12s-8-3-8-12a8 8 0 1116 0zm-6 0a2 2 0 11-4 0 2 2 0 014 0zm2 0a4 4 0 11-8 0 4 4 0 018 0z"
+                          fill="currentColor"/>
+                </svg>
+                </svg>
+                <svg height="100" width="100">
+                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+            </p>
+            <h2>An Image</h2>
+            <img style="width: 25%" src="logo_realmatch360.jpeg">
+            <h2>Some Text</h2>
+            <p>
+                The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by
+                fox
+                whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab
+                quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting
+                zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How
+                quickly
+                daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs!
+                "Now
+                fax quiz Jack!" my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching
+                W.
+                zaps Iraq.
+            </p>
+        </div>
+        <div class="content" style="page-break-inside: avoid;">
+            <h2>The Chart</h2>
+            <p>
+                <canvas id="myChart"></canvas>
+                <img id="myImage">
+            </p>
+        </div>
+        <div class="content" style="page-break-inside: avoid;">
+            <h2>More Text</h2>
+            <p>The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by
+                fox
+                whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab
+                quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting
+                zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How
+                quickly
+                daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs!
+                "Now
+                fax quiz Jack!" my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching
+                W.
+                zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips
+                galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my
+                wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A
+                wizard’s job is to vex chumps quickly in fog. Watch "Jeopardy!", Alex Trebek's fun TV quiz game. Woven
+                silk
+                pyjamas exchanged for blue quartz. Brawny gods just</p>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
