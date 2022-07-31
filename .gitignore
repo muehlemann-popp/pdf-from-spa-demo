@@ -1,5 +1,6 @@
-### JetBrains template
 .idea/
+
+.DS_Store/
 
 /example.png
 /output.pdf
