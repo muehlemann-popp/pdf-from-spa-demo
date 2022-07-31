@@ -1,6 +1,16 @@
 Realmatch Printer POC
 =====================
 
-This repository verified the "DOM Push" approach to generate PDFs for Realmatch.
+This repository demonstrates how to create a PDF from a Single Page Application.
 
-The details can be found in https://m-p.atlassian.net/browse/REAL-537
+Read more about it on Medium.
+
+Start by running
+
+    cd src
+    npm install
+    node server.js   
+
+
+
+

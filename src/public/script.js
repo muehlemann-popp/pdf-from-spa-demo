@@ -5,9 +5,11 @@ function printMe() {
   document.getElementsByTagName('head')[0].appendChild(baseElement)
 
   // We have to replace the Canvas with the corresponding PNG image
+  const ctx = document.getElementById('myChart');
   const imgData = ctx.toDataURL("image/png")
-  ctx.remove()
-  document.getElementById('myImage').setAttribute('src', imgData)
+  const img = document.createElement('img')
+  img.setAttribute('src', imgData)
+  ctx.parentNode.replaceChild(img, ctx)
 
   // We send the full HTML code to the server
   var htmlSource = document.documentElement.outerHTML;
